@@ -1,0 +1,64 @@
+{% load static from staticfiles %}
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'scripts/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <title>BlueBooks</title>
+  </head>
+  <body>
+    <header class="">
+      <div class="log">
+        <a href="#">přihlásit</a> <span>  /  </span> <a href="#">registrovat</a>
+      </div>
+      <div class="hamburger-icon icon-container">
+
+      </div>
+
+      <nav class="sidebar sidebar__hide">
+        <div class="sidebar-icon icon-container">
+
+        </div>
+
+        <ul>
+          <li> <a href="#"></a> Home </li>
+          <li> <a href="#"></a> Žebříčky </li>
+          <li> <a href="#"></a> Knihy </li>
+          <li> <a href="#"></a> Oblíbené </li>
+          <li> <a href="#"></a> Přihlásit </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="billboard">
+      <div class="billboard-container container">
+        <h1 class="display-1"><span>Blue</span>Books</h1>
+
+        <form class="search-bar" action="" method="post">
+          <input class="" type="text" name="" value="" placeholder="Hledaná kniha">
+          <div class="icon-container"></div>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'scripts/popper.min.js' %}"></script>
+
+    <script type="text/javascript">
+      $(".hamburger-icon, .sidebar-icon").on("click", function() {
+        $(".sidebar").toggleClass("sidebar__hide");
+      });
+    </script>
+  </body>
+</html>
