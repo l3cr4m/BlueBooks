@@ -4,6 +4,16 @@ html, body {
   padding: 0;
   font-family: "Roboto", sans-serif; }
 
+.log-io-top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.log-io-bar {
+  display: none; }
+
 header {
   width: 100vw;
   position: fixed;
@@ -12,13 +22,35 @@ header {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-     -moz-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end; }
-  header .log {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+  header .logo-top {
+    width: 100%;
     margin: 20px;
+    height: 34px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    header .logo-top h1 {
+      float: left;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      font-size: 30px; }
+      header .logo-top h1 span {
+        color: #008CFF; }
+  header .log {
+    margin: 20px 0 20px 20px;
     height: 34px;
     color: #ffffff;
     display: -webkit-box;
@@ -193,4 +225,8 @@ header {
 
 @media (max-width: 575.98px) {
   .billboard h1 {
-    font-size: 42pt; } }
+    font-size: 42pt; }
+  .log-io-top {
+    display: none !important; }
+  .log-io-bar {
+    display: block; } }
