@@ -50,23 +50,112 @@
       <div class="billboard-container container">
         <h1 class="display-1"><span>Blue</span>Books</h1>
 
-        <form class="search-bar" action="" method="post">
-          <input class="" type="text" name="" value="" placeholder="Hledaná kniha">
+        <form class="search-bar" id="button">
+          <input id="search" type="text" name="" value="" placeholder="Hledaná kniha">
           <div class="icon-container"></div>
         </form>
       </div>
     </div>
 
-    <div class="">
+    <div class="product-list">
+      <div class="search-hide">
+        <h2>Výsledek vyhledávání</h2>
+      </div>
 
+      <div class="wrapper container" id="results">
+        {% for x in "y"|rjust:"0" %}
+<!--
+        <div class="product">
+          <a href="#">
+            <img src="{% static 'img/harry-potter.jpg' %}" alt="">
+
+            <div class="product-title">
+              <h3>Harry Potter a kámen mudrců</h3>
+            </div>
+          </a>
+        </div>
+
+        {% endfor %}
+  -->
+      </div>
+      <div class="product-load search-hide">
+        <button id="next" type="button" name="button">Dalších 20</button>
+      </div>
     </div>
 
+
+    <footer class="search-hide">
+
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'scripts/jquery.min.js' %}"></script>
     <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
     <script src="{% static 'scripts/popper.min.js' %}"></script>
+
+    <script src="{% static 'scripts/ajax_googleapis.min.js' %}"></script>
+
+    <script type="text/javascript">
+      var x = document.getElementsByClassName("search-hide");
+      var max = 20;
+      function booksearch(){
+        var search = document.getElementById('search').value
+        document.getElementById('results').innerHTML = ""
+
+        console.log(search)
+
+        $.ajax({
+          url: "https://www.googleapis.com/books/v1/volumes?q=" + search + "&langRestrict=cs_cz&printType=books&maxResults=" + 20 + "&startIndex=" + max,
+          dataType: "json",
+
+          success: function(data){
+            for(i=0; i<data.items.length; i++){
+              results.innerHTML += "  <div class='product'> <a href=''> <img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + " alt=''> <div class='product-title'> <h3>" + data.items[i].volumeInfo.title + "</h3> </div></a></div>"
+
+
+            }
+          },
+
+          type: "GET"
+        });
+      }
+
+      function booksearch20(){
+        var search = document.getElementById('search').value
+        console.log(search)
+
+        $.ajax({
+          url: "https://www.googleapis.com/books/v1/volumes?q=" + search + "&langRestrict=cs_cz&printType=books&maxResults=" + 20 + "&startIndex=" + max,
+          dataType: "json",
+
+          success: function(data){
+            for(i=0; i<data.items.length; i++){
+              results.innerHTML += "  <div class='product'> <a href=''> <img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + " alt=''> <div class='product-title'> <h3>" + data.items[i].volumeInfo.title + "</h3> </div></a></div>"
+
+
+            }
+          },
+
+          type: "GET"
+        });
+      }
+
+      document.getElementById("button").onkeypress = function(event){
+                if (event.keyCode == 13 || event.which == 13){
+                  booksearch();
+                  x[0].style.display = "flex";
+                  x[1].style.display = "flex";
+                  x[2].style.display = "flex";
+
+                }
+            };
+
+      document.getElementById("next").onclick = function(){
+                max += 20;
+                booksearch20();
+            };
+    </script>
 
     <script type="text/javascript">
       $(".hamburger-icon, .sidebar-icon").on("click", function() {
