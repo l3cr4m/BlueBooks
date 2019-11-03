@@ -1,5 +1,6 @@
 var x = document.getElementsByClassName("search-hide");
 var max = 20;
+
 function booksearch(){
   var search = document.getElementById('search').value
   document.getElementById('results').innerHTML = ""
@@ -7,7 +8,7 @@ function booksearch(){
   console.log(search)
 
   $.ajax({
-    url: "https://www.googleapis.com/books/v1/volumes?q=" + search + "&langRestrict=cs_cz&printType=books&maxResults=" + 20 + "&startIndex=" + max,
+    url: "https://www.googleapis.com/books/v1/volumes?q=" + search + "&langRestrict=cs_cz&printType=books&maxResults=" + 20,
     dataType: "json",
 
     success: function(data){

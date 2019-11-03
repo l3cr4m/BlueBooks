@@ -1,106 +1,102 @@
+{% extends 'base_layout.html' %}
 {% load static from staticfiles %}
 
-<!doctype html>
-<html lang="cs">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% block content %}
+    <section class="content-detail">
+      <div class="container content-detail-container">
+        <div class="content-detail-container-top">
+        </div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'scripts/bootstrap.min.css' %}" >
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+        <div class="content-detail-container-left">
+          <img src="{% static 'img/harry-potter.jpg' %}" alt="">
+        </div>
 
-    <title>BlueBooks</title>
-  </head>
-  <body>
-    <header class="">
-      <div class="logo-top">
-        <a href="#"><h1><span>Blue</span>Books</h1></a>
+        <div class="content-detail-container-right">
+          <h3>Harry Potter a kámen mudrců</h3>
+          <p>
+            Nové vydání příběhů čarodějnického učně Harryho, tentokrát bohatě vypravené ilustracemi Jima Kaye.
+
+            Až do svých jedenáctých narozenin si o sobě Harry myslel, že je jen obyčejný chlapec. Pak ale dostal soví poštou dopis, kterým byl zván ke studiu na prestižní soukromé Škole čar a kouzel v Bradavicích, a jeho život se rázem proměnil. Leccos se dozvídá o minulosti svých zemřelých rodičů, získá pár dobrých kamarádů, naučí se mistrovsky hrát famfrpál a podstoupí souboj se zloduchem Voldemortem...
+          </p>
+
+          <div class="content-detail-container-right-info collapse" id="collapseExample">
+            <p><span>Author:</span> J.K. Rowling</p>
+            <p><span>Categhories:</span> Juvenile Fiction</p>
+            <p><span>Published:</span> 2015, Albatros</p>
+            <p><span>Pages:</span> 248</p>
+            <p><span>Language:</span> český</p>
+            <p><span>ISBN 13:</span> 9781781107515</p>
+            <p><span>ISBN 10:</span> 	1781107513</p>
+          </div>
+
+          <button class="button1 collaspe-LM" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Show More
+          </button>
+        </div>
       </div>
 
-      <div class="log">
-        <div class="log-io-top">
-          <a href="#">přihlásit</a> <span>  /  </span> <a href="#">registrovat</a>
-        </div>
+      <div class="container content-detail-reviews">
+        <h3>Reviews</h3>
+
+        <form class="review-user" action="" method="post">
+          <textarea name="name" rows="4 " cols="40" placeholder="Add a public review"></textarea>
 
 
-        <div class="hamburger-icon icon-container">
-
-        </div>
-      </div>
-
-      <nav class="sidebar sidebar__hide">
-        <div class="sidebar-icon icon-container">
-
-        </div>
-
-        <ul>
-          <li> <a href="#"></a> Home </li>
-          <li> <a href="#"></a> Žebříčky </li>
-          <li> <a href="#"></a> Knihy </li>
-          <li> <a href="#"></a> Oblíbené </li>
-          <li class="log-io-bar"> <a href="#"></a> Registrovat </li>
-          <li class="log-io-bar"> <a href="#"></a> Přihlásit </li>
-        </ul>
-      </nav>
-    </header>
-
-    <div class="billboard">
-      <div class="billboard-container container">
-        <h1 class="display-1"><span>Blue</span>Books</h1>
-
-        <form class="search-bar" id="button">
-          <input id="search" type="text" name="" value="" placeholder="Hledaná kniha">
-          <div class="icon-container"></div>
+          <fieldset class="rating">
+              <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+              <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+              <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+              <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+              <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+              <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+              <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+              <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+              <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+              <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+          </fieldset>
+          <button class="button1" type="button" name="button">Send</button>
         </form>
-      </div>
-    </div>
 
-    <div class="product-list">
-      <div class="search-hide">
-        <h2>Výsledek vyhledávání</h2>
-      </div>
+        {% for i in "x"|rjust:"10" %}
+        <div class="content-detail-reviews-review">
+          <div class="content-detail-reviews-review-left">
+            <img src="{% static 'img/user-icon.svg' %}" alt="">
 
-      <div class="wrapper container" id="results">
-        {% for x in "y"|rjust:"0" %}
-<!--
-        <div class="product">
-          <a href="#">
-            <img src="{% static 'img/harry-potter.jpg' %}" alt="">
 
-            <div class="product-title">
-              <h3>Harry Potter a kámen mudrců</h3>
+            <fieldset class="rating">
+                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+            </fieldset>
+
+            <h4>Marcel Smolík</h4>
+          </div>
+
+          <div class="content-detail-reviews-review-right">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+            <div class="comments-like">
+              <div class="comments-like-like">
+
+              </div>
+              <p>0</p>
+
+              <div class="comments-like-dislike">
+
+              </div>
+              <p>0</p>
             </div>
-          </a>
+          </div>
         </div>
-
         {% endfor %}
-  -->
       </div>
-      <div class="product-load search-hide">
-        <button id="next" type="button" name="button">Dalších 20</button>
-      </div>
-    </div>
-
-
-    <footer class="search-hide">
-
-    </footer>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{% static 'scripts/jquery.min.js' %}"></script>
-    <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
-    <script src="{% static 'scripts/popper.min.js' %}"></script>
-
-    <script src="{% static 'scripts/ajax_googleapis.min.js' %}"></script>
-    <script src="{% static 'scripts/googleBooks.js' %}"></script>
-
-    <script type="text/javascript">
-      $(".hamburger-icon, .sidebar-icon").on("click", function() {
-        $(".sidebar").toggleClass("sidebar__hide");
-      });
-    </script>
-  </body>
-</html>
+    </section>
+{% endblock %}

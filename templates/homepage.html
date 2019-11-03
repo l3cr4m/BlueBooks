@@ -1,59 +1,16 @@
+{% extends 'base_layout.html' %}
 {% load static from staticfiles %}
 
-<!doctype html>
-<html lang="cs">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'scripts/bootstrap.min.css' %}" >
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-
-    <title>BlueBooks</title>
-  </head>
-  <body>
-    <header class="">
-      <div class="logo-top">
-        <a href="#"><h1><span>Blue</span>Books</h1></a>
-      </div>
-
-      <div class="log">
-        <div class="log-io-top">
-          <a href="#">přihlásit</a> <span>  /  </span> <a href="#">registrovat</a>
-        </div>
-
-
-        <div class="hamburger-icon icon-container">
-
-        </div>
-      </div>
-
-      <nav class="sidebar sidebar__hide">
-        <div class="sidebar-icon icon-container">
-
-        </div>
-
-        <ul>
-          <li> <a href="#"></a> Home </li>
-          <li> <a href="#"></a> Žebříčky </li>
-          <li> <a href="#"></a> Knihy </li>
-          <li> <a href="#"></a> Oblíbené </li>
-          <li class="log-io-bar"> <a href="#"></a> Registrovat </li>
-          <li class="log-io-bar"> <a href="#"></a> Přihlásit </li>
-        </ul>
-      </nav>
-    </header>
+{% block content %}
 
     <div class="billboard">
       <div class="billboard-container container">
         <h1 class="display-1"><span>Blue</span>Books</h1>
 
-        <form class="search-bar" id="button">
+        <div class="search-bar" id="button">
           <input id="search" type="text" name="" value="" placeholder="Hledaná kniha">
           <div class="icon-container"></div>
-        </form>
+        </div>
       </div>
     </div>
 
@@ -63,44 +20,10 @@
       </div>
 
       <div class="wrapper container" id="results">
-        {% for x in "y"|rjust:"0" %}
-<!--
-        <div class="product">
-          <a href="#">
-            <img src="{% static 'img/harry-potter.jpg' %}" alt="">
-
-            <div class="product-title">
-              <h3>Harry Potter a kámen mudrců</h3>
-            </div>
-          </a>
-        </div>
-
-        {% endfor %}
-  -->
       </div>
       <div class="product-load search-hide">
         <button id="next" type="button" name="button">Dalších 20</button>
       </div>
     </div>
 
-
-    <footer class="search-hide">
-
-    </footer>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{% static 'scripts/jquery.min.js' %}"></script>
-    <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
-    <script src="{% static 'scripts/popper.min.js' %}"></script>
-
-    <script src="{% static 'scripts/ajax_googleapis.min.js' %}"></script>
-    <script src="{% static 'scripts/googleBooks.js' %}"></script>
-
-    <script type="text/javascript">
-      $(".hamburger-icon, .sidebar-icon").on("click", function() {
-        $(".sidebar").toggleClass("sidebar__hide");
-      });
-    </script>
-  </body>
-</html>
+{% endblock %}

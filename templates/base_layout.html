@@ -1,0 +1,84 @@
+{% load static from staticfiles %}
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'scripts/bootstrap.min.css' %}" >
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <title>BlueBooks</title>
+  </head>
+  <body>
+    <header class="{% if request.resolver_match.url_name != "home" %}header{% endif %}">
+      <div class="logo-top">
+        <a href="#"><h1><span>Blue</span>Books</h1></a>
+      </div>
+
+      <div class="log">
+        <div class="log-io-top">
+          <a href="#">přihlásit</a> <span>  /  </span> <a href="#">registrovat</a>
+        </div>
+
+
+        <div class="hamburger-icon icon-container">
+
+        </div>
+      </div>
+
+      <nav class="sidebar sidebar__hide">
+        <div class="sidebar-icon icon-container">
+
+        </div>
+
+        <ul>
+          <li> <a href="#"></a> Home </li>
+          <li> <a href="#"></a> Žebříčky </li>
+          <li> <a href="#"></a> Knihy </li>
+          <li> <a href="#"></a> Oblíbené </li>
+          <li class="log-io-bar"> <a href="#"></a> Registrovat </li>
+          <li class="log-io-bar"> <a href="#"></a> Přihlásit </li>
+        </ul>
+      </nav>
+    </header>
+
+      {% block content %}
+
+      {% endblock %}
+
+    <footer class="{% if request.resolver_match.url_name != 'home' %}footer{% endif %} {% if request.resolver_match.url_name == 'home' %}search-hide{% endif %}">
+
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'scripts/popper.min.js' %}"></script>
+
+    <script src="{% static 'scripts/ajax_googleapis.min.js' %}"></script>
+    <script src="{% static 'scripts/googleBooks.js' %}"></script>
+
+    <script src="{% static 'scripts/simple-scrollbar.min.js' %}"></script>
+
+    <script type="text/javascript">
+      let scrollDiv1 = document.querySelector(".ss-container");
+      SimpleScrollbar.initEl(scrollDiv1);
+    </script>
+
+    <script type="text/javascript">
+      $(".hamburger-icon, .sidebar-icon").on("click", function() {
+        $(".sidebar").toggleClass("sidebar__hide");
+      });
+
+      $('.collaspe-LM').click(function(){
+        $(this).html() == "Show Less" ? $(this).html('Show More') : $(this).html('Show Less');
+      });
+    </script>
+  </body>
+</html>
