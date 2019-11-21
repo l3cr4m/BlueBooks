@@ -1,0 +1,26 @@
+{% extends 'profile_layout.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+<div class="sign-container">
+  <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+  <h1>Create your account</h1>
+  <form class="sign-log">
+    <label for=""> Username <span>*</span></label><br>
+    <input class="form-control" type="text" name="" value=""><br>
+
+    <label for=""> Email address <span>*</span></label><br>
+    <input class="form-control" type="text" name="" value=""><br>
+
+    <label for=""> Password <span>*</span></label><br>
+    <input class="form-control" type="text" name="" value=""><br>
+
+    <input class="button1" type="submit" name="" value="Sign in">
+  </form>
+
+  <div class="sign-log">
+    I have already account.
+    <a href="{% url 'profil:sign_in' %}"> Sign in </a>
+  </div>
+</div>
+{% endblock %}

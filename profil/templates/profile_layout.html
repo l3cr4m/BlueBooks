@@ -1,0 +1,50 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'scripts/bootstrap.min.css' %}" >
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <title>BlueBooks</title>
+  </head>
+  <body>
+    <div class="sign">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'scripts/popper.min.js' %}"></script>
+
+    <script src="{% static 'scripts/ajax_googleapis.min.js' %}"></script>
+
+    <script src="{% static 'scripts/simple-scrollbar.min.js' %}"></script>
+
+    <script type="text/javascript">
+      let scrollDiv1 = document.querySelector(".ss-container");
+      SimpleScrollbar.initEl(scrollDiv1);
+
+    <script type="text/javascript">
+      $(".hamburger-icon, .sidebar-icon").on("click", function() {
+        $(".sidebar").toggleClass("sidebar__hide");
+      });
+
+      $('.collaspe-LM').click(function(){
+        $(this).html() == "Show Less" ? $(this).html('Show More') : $(this).html('Show Less');
+      });
+    </script>
+  </body>
+</html>

@@ -25,8 +25,10 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage, name='home'),
     path('books/', include('books.urls')),
+    path('profil/', include('profil.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('', views.homepage, name='home'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,0 +1,23 @@
+{% extends 'profile_layout.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+<div class="sign-container">
+  <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+  <h1>Sign in to BlueBooks</h1>
+  <form class="sign-log">
+    <label for=""> Username or email address </label><br>
+    <input class="form-control" type="text" name="" value=""><br>
+
+    <label for=""> Password </label><br>
+    <input class="form-control" type="text" name="" value=""><br>
+
+    <input class="button1" type="submit" name="" value="Sign in">
+  </form>
+
+  <div class="sign-log">
+    New to BlueBooks?
+    <a href="{% url 'profil:sign_up' %}"> Create an account. </a>
+  </div>
+</div>
+{% endblock %}
